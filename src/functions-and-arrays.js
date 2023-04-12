@@ -54,9 +54,39 @@ function sumNumbers(numbers) {
 console.log(`Iteracion 3:  ${sumNumbers(numbers)}`);
 
 // Iteration #3.1 Bonus:
-function sum() {}
+// definimos el array
 
-console.log(`Iteracion 3.1:  `);
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+  // declaramos la variable donde se almacenara el total
+  let counter = 0;
+    // recorremos el bucle 
+    for (let i = 0; i < arr.length; i++) {
+    // ! creamos una memoria para guardar el valor del elemento
+    const value = arr[i];
+    // si el elemento es un numero, sumamos su valor directamente al counter 
+    if (typeof value === "number") {
+      counter += value;
+      // si el elemento es un string, sumamos su longitud al counter 
+    } else if (typeof value === "string") {
+      counter += value.length;
+      // si el elemento es un bool, sumamos su 1 si es true o 0 si es false al counter 
+    } else if (typeof value === "boolean") {
+      if (value === true){
+        counter+=1;
+      } else {
+        counter+=0;
+      }
+      // ! si es un objeto o un array mandamos un mensaje de error ??
+    } else if (typeof value === "object" || value === "Array") { 
+      console.log('Error, la posicion ' + i + ' es un tipo de dato no válido');
+    }
+  }
+  return counter;
+}
+
+console.log(`Iteracion 3.1: ${sum(mixedArr)}`);
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -110,7 +140,33 @@ function averageWordLength(words) {
 console.log(`Iteracion 4-level 2:  ${averageWordLength(wordsArr)}`);
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  let total = 0;
+  let count = 0;
+  // creamos un if que comprueba que el array no este vacio, y de ser asi devuelve un null
+  if (arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    if (typeof value === 'number') {
+      total += value;
+      count++;
+    } else if (typeof value === 'string') {
+      total += value.length;
+      count++;
+    } else if (typeof value === 'boolean') {
+      if (value) {
+        total += 1;
+        count++;
+      }
+    } else {
+      throw new Error('El valor en la posición ' + i + ' no es válido');
+    }
+  }
+  return total / count;
+}
+
 
 console.log(`Iteracion 4.1:  `);
 
