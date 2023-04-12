@@ -140,33 +140,7 @@ function averageWordLength(words) {
 console.log(`Iteracion 4-level 2:  ${averageWordLength(wordsArr)}`);
 
 // Bonus - Iteration #4.1
-function avg(arr) {
-  let total = 0;
-  let count = 0;
-  // creamos un if que comprueba que el array no este vacio, y de ser asi devuelve un null
-  if (arr.length === 0) {
-    return null;
-  }
-  for (let i = 0; i < arr.length; i++) {
-    const value = arr[i];
-    if (typeof value === 'number') {
-      total += value;
-      count++;
-    } else if (typeof value === 'string') {
-      total += value.length;
-      count++;
-    } else if (typeof value === 'boolean') {
-      if (value) {
-        total += 1;
-        count++;
-      }
-    } else {
-      throw new Error('El valor en la posición ' + i + ' no es válido');
-    }
-  }
-  return total / count;
-}
-
+function avg() {}
 
 console.log(`Iteracion 4.1:  `);
 
