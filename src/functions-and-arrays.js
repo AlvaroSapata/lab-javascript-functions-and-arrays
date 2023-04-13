@@ -1,3 +1,4 @@
+console.log("----------")
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
@@ -9,6 +10,8 @@ function maxOfTwoNumbers(num1, num2) {
 
 console.log(`Iteracion 1:  ${maxOfTwoNumbers(231, 424)}`);
 
+console.log("----------")
+
 // Iteration #2: Find longest word
 const words = [
   "mystery",
@@ -18,35 +21,55 @@ const words = [
   "pearl",
   "orchard",
   "crackpot",
+  "ejem-guion"
 ];
 
-function findLongestWord(words) {
+function findLongestWord(wordsArr) {
   // creamos la variable vacia donde se almacenara la palabra mas larga
   let longestWord = "";
   // creamos un if que comprueba que el array no este vacio, y de ser asi devuelve un null
-  if (words.length === 0) {
+  if (wordsArr.length === 0) {
     return null;
   }
-  // recorremos el array con un for y en cada palabra comprobamos que la longitud sea mayor que la actual longestWord, si es asi, se actualiza dicha variable
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > longestWord.length) {
-      longestWord = words[i];
+    // recorremos el array con un for y en cada palabra comprobamos que la longitud sea mayor que la actual longestWord, si es asi, se actualiza dicha variable
+  for (let i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i].length > longestWord.length) {
+      longestWord = wordsArr[i];
     }
   }
   return longestWord;
 }
 
-console.log(`Iteracion 2:  ${findLongestWord(words)}`);
+console.log(`Iteracion 2: (FOR)    :${findLongestWord(words)}`);
+
+//ALTERNATIVA CON FOR OF
+
+function findLongestWord2(wordsArr) {
+  let longestWord= "";
+  for (let element of wordsArr) {
+    // !Incluimos una clausula de guardia que nos elimina los guiones en palabras compuestas
+    if (element.includes("-")){
+      element=element.replace("-","")
+    }
+    if (element.length > longestWord.length) {
+      longestWord = element;
+    }
+  }
+  return longestWord;
+}
+console.log(`Iteracion 2: (FOR OF) :${findLongestWord2(words)}`);
+
+console.log("----------")
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(numbers) {
+function sumNumbers(numbersArr) {
   // declaramos la variable donde se almacenara la suma
   let sum = 0;
   // recorremos el bucle con un for, y para cada numero, lo añadimos al actual valor de sum
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+  for (let i = 0; i < numbersArr.length; i++) {
+    sum += numbersArr[i];
   }
   return sum;
 }
@@ -78,7 +101,7 @@ function sum(arr) {
       } else {
         counter+=0;
       }
-      // ! si es un objeto o un array mandamos un mensaje de error ??
+      // ! si es un objeto o un array mandamos un mensaje de error ?????
     } else if (typeof value === "object" || value === "Array") { 
       console.log('Error, la posicion ' + i + ' es un tipo de dato no válido');
     }
@@ -87,6 +110,8 @@ function sum(arr) {
 }
 
 console.log(`Iteracion 3.1: ${sum(mixedArr)}`);
+
+console.log("----------")
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -104,7 +129,7 @@ function averageNumbers(numbersAvg) {
   return average;
 }
 
-console.log(`Iteracion 4-level 1:  ${averageNumbers(numbersAvg)}`);
+console.log(`Iteracion 4.1:  ${averageNumbers(numbersAvg)}`);
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -137,12 +162,26 @@ function averageWordLength(words) {
   return averageLength;
 }
 
-console.log(`Iteracion 4-level 2:  ${averageWordLength(wordsArr)}`);
+console.log(`Iteracion 4.2: (FOR)    :${averageWordLength(wordsArr)}`);
+
+
+// FOR OF ALTERNATIVE
+function averageWordLength2(stringsArr) {
+  let sum =0;
+  for (let element of stringsArr){
+    sum=sum+element.length
+  }
+  return sum/stringsArr.length
+}
+
+console.log(`Iteracion 4.2: (FOR OF) :${averageWordLength2(wordsArr)}`);
 
 // Bonus - Iteration #4.1
 function avg() {}
 
-console.log(`Iteracion 4.1:  `);
+console.log(`Iteracion 4.Bonus:  `);
+
+console.log("----------")
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -176,6 +215,8 @@ function uniquifyArray(words) {
 }
 console.log(`Iteracion 5:  ${uniquifyArray(wordsUnique)}`);
 
+console.log("----------")
+
 // Iteration #6: Find elements
 const wordsFind = [
   "machine",
@@ -204,6 +245,8 @@ function doesWordExist(arrayFind, wordFind) {
 }
 
 console.log(`Iteracion 6:  ${doesWordExist(wordsFind, "subset")}`)
+
+console.log("----------")
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -236,6 +279,9 @@ function howManyTimes(wordsArr,word) {
   return counter;
 }
 console.log(`Iteracion 7:  ${howManyTimes(wordsCount,"matter")}`)
+
+console.log("----------")
+
 // Iteration #8: Bonus
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
