@@ -244,8 +244,14 @@ function doesWordExist(arrayFind, wordFind) {
   return false;
 }
 
-console.log(`Iteracion 6:  ${doesWordExist(wordsFind, "subset")}`)
+console.log(`Iteracion 6:             :${doesWordExist(wordsFind, "subset")}`)
 
+// ALTERNATIVA SIN BUCLE --> .includes
+
+function doesWordExist2(stringsArr,searchString){
+  return stringsArr.includes(searchString)
+}
+console.log(`Iteracion 6: (.INCLUDES) :${doesWordExist2(wordsFind, "subset")}`)
 console.log("----------")
 
 // Iteration #7: Count repetition
