@@ -1,4 +1,4 @@
-console.log("----------")
+console.log("----------");
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
@@ -10,7 +10,7 @@ function maxOfTwoNumbers(num1, num2) {
 
 console.log(`Iteracion 1:  ${maxOfTwoNumbers(231, 424)}`);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #2: Find longest word
 const words = [
@@ -21,7 +21,7 @@ const words = [
   "pearl",
   "orchard",
   "crackpot",
-  "ejem-guion"
+  "ejem-guion",
 ];
 
 function findLongestWord(wordsArr) {
@@ -31,7 +31,7 @@ function findLongestWord(wordsArr) {
   if (wordsArr.length === 0) {
     return null;
   }
-    // recorremos el array con un for y en cada palabra comprobamos que la longitud sea mayor que la actual longestWord, si es asi, se actualiza dicha variable
+  // recorremos el array con un for y en cada palabra comprobamos que la longitud sea mayor que la actual longestWord, si es asi, se actualiza dicha variable
   for (let i = 0; i < wordsArr.length; i++) {
     if (wordsArr[i].length > longestWord.length) {
       longestWord = wordsArr[i];
@@ -45,11 +45,11 @@ console.log(`Iteracion 2: (FOR)    :${findLongestWord(words)}`);
 //ALTERNATIVA CON FOR OF
 
 function findLongestWord2(wordsArr) {
-  let longestWord= "";
+  let longestWord = "";
   for (let element of wordsArr) {
     // !Incluimos una clausula de guardia que nos elimina los guiones en palabras compuestas
-    if (element.includes("-")){
-      element=element.replace("-","")
+    if (element.includes("-")) {
+      element = element.replace("-", "");
     }
     if (element.length > longestWord.length) {
       longestWord = element;
@@ -59,7 +59,7 @@ function findLongestWord2(wordsArr) {
 }
 console.log(`Iteracion 2: (FOR OF) :${findLongestWord2(words)}`);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -79,31 +79,31 @@ console.log(`Iteracion 3:  ${sumNumbers(numbers)}`);
 // Iteration #3.1 Bonus:
 // definimos el array
 
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(arr) {
   // declaramos la variable donde se almacenara el total
   let counter = 0;
-    // recorremos el bucle 
-    for (let i = 0; i < arr.length; i++) {
+  // recorremos el bucle
+  for (let i = 0; i < arr.length; i++) {
     // ! creamos una memoria para guardar el valor del elemento
     const value = arr[i];
-    // si el elemento es un numero, sumamos su valor directamente al counter 
+    // si el elemento es un numero, sumamos su valor directamente al counter
     if (typeof value === "number") {
       counter += value;
-      // si el elemento es un string, sumamos su longitud al counter 
+      // si el elemento es un string, sumamos su longitud al counter
     } else if (typeof value === "string") {
       counter += value.length;
-      // si el elemento es un bool, sumamos su 1 si es true o 0 si es false al counter 
+      // si el elemento es un bool, sumamos su 1 si es true o 0 si es false al counter
     } else if (typeof value === "boolean") {
-      if (value === true){
-        counter+=1;
+      if (value === true) {
+        counter += 1;
       } else {
-        counter+=0;
+        counter += 0;
       }
       // ! si es un objeto o un array mandamos un mensaje de error ?????
-    } else if (typeof value === "object" || value === "Array") { 
-      console.log('Error, la posicion ' + i + ' es un tipo de dato no válido');
+    } else if (typeof value === "object" || value === "Array") {
+      console.log("Error, la posicion " + i + " es un tipo de dato no válido");
     }
   }
   return counter;
@@ -111,7 +111,7 @@ function sum(arr) {
 
 console.log(`Iteracion 3.1: ${sum(mixedArr)}`);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -164,14 +164,13 @@ function averageWordLength(words) {
 
 console.log(`Iteracion 4.2: (FOR)    :${averageWordLength(wordsArr)}`);
 
-
 // FOR OF ALTERNATIVE
 function averageWordLength2(stringsArr) {
-  let sum =0;
-  for (let element of stringsArr){
-    sum=sum+element.length
+  let sum = 0;
+  for (let element of stringsArr) {
+    sum = sum + element.length;
   }
-  return sum/stringsArr.length
+  return sum / stringsArr.length;
 }
 
 console.log(`Iteracion 4.2: (FOR OF) :${averageWordLength2(wordsArr)}`);
@@ -181,7 +180,7 @@ function avg() {}
 
 console.log(`Iteracion 4.Bonus:  `);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -215,7 +214,7 @@ function uniquifyArray(words) {
 }
 console.log(`Iteracion 5:  ${uniquifyArray(wordsUnique)}`);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -244,15 +243,15 @@ function doesWordExist(arrayFind, wordFind) {
   return false;
 }
 
-console.log(`Iteracion 6:             :${doesWordExist(wordsFind, "subset")}`)
+console.log(`Iteracion 6:             :${doesWordExist(wordsFind, "subset")}`);
 
 // ALTERNATIVA SIN BUCLE --> .includes
 
-function doesWordExist2(stringsArr,searchString){
-  return stringsArr.includes(searchString)
+function doesWordExist2(stringsArr, searchString) {
+  return stringsArr.includes(searchString);
 }
-console.log(`Iteracion 6: (.INCLUDES) :${doesWordExist2(wordsFind, "subset")}`)
-console.log("----------")
+console.log(`Iteracion 6: (.INCLUDES) :${doesWordExist2(wordsFind, "subset")}`);
+console.log("----------");
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -269,7 +268,7 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes(wordsArr,word) {
+function howManyTimes(wordsArr, word) {
   // declaramos una variable para contar el numero de repeticiones
   let counter = 0;
   // creamos un if que comprueba que el array no este vacio, y de ser asi devuelve un 0(zero)
@@ -277,16 +276,16 @@ function howManyTimes(wordsArr,word) {
     return 0;
   }
   // recorremos el bucle
-  for (i=0; i<wordsArr.length;i++){
-    if(wordsArr[i]===word){
+  for (i = 0; i < wordsArr.length; i++) {
+    if (wordsArr[i] === word) {
       counter++;
     }
   }
   return counter;
 }
-console.log(`Iteracion 7:  ${howManyTimes(wordsCount,"matter")}`)
+console.log(`Iteracion 7:  ${howManyTimes(wordsCount, "matter")}`);
 
-console.log("----------")
+console.log("----------");
 
 // Iteration #8: Bonus
 const matrix = [
@@ -354,8 +353,30 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let max = 0;
 
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (j + 3 < matrix[i].length) { // check if there are enough columns to the right
+        let horizontalCalc = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        if (horizontalCalc > max) {
+          max = horizontalCalc;
+        }
+      }
+      if (i + 3 < matrix.length) { // check if there are enough rows below
+        let verticalCalc = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        if (verticalCalc > max) {
+          max = verticalCalc;
+        }
+      }
+    }
+  }
+
+  return max;
+}
+
+console.log(`Iteracion 8:  ${greatestProduct(matrix)}`)
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== "undefined") {
